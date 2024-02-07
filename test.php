@@ -4,4 +4,3 @@
 
     // Utilisation de la variable dans le script PHP
     echo "La variable PHP reçue est : " . $maVariablePHP;
-?>
