@@ -16,15 +16,11 @@ function decreaseNumber() {
 
 function sendToServer() {
   let number = numbershown;
-  console.log(numbershown);
+  console.log(number);
   const formData = new FormData();
   formData.append('number', number);
   fetch('process_number.php', {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-
     body: formData
   })
     .then(response => response.text())
