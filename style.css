@@ -10,6 +10,14 @@ html {
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(images/minishrek.png);
+    background-repeat: repeat;
+    background-size: auto;
+}
+
 nav {
     background-color: #333;
 }
@@ -37,3 +45,45 @@ li a {
 li a:hover {
     background-color: #111;
 }
+
+/* Barre de navigation */
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+
+/* Menu principal */
+
+.box {
+    background-color: #333;
+    border-radius: 20px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title {
+    font-family: 'Comic Sans MS', Comic Sans, cursive;
+    font-size: 150px;
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.subtitle {
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: x-large;
+    text-align: center;
+    padding: 20px;
+}
+
