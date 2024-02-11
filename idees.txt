@@ -1,1 +1,3 @@
 un petit menu oui/non où on bouge le non quand on clique dessus
+
+une échelle pour choisir uun nombre mais les nombres sont pas triés dans l'ordre mais dans un ordre random
