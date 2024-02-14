@@ -3,9 +3,11 @@ let numbershown = 0;
 
 
 function increaseNumber() {
-  fetch('php/increment_index.php', {
+  const formData = new FormData();
+  formData.append('operation', 1);
+  fetch('php/incdec.php', {
     method: 'POST',
-    body:''
+    body:formData
   })
     .then(response => response.text())
     .then(data => console.log(data))
@@ -13,9 +15,15 @@ function increaseNumber() {
 }
 
 function decreaseNumber() {
-  numbershown--;
-  console.log(numbershown);
-  document.getElementById("numberField").value = numbershown;
+  const formData = new FormData();
+  formData.append('operation', 2);
+  fetch('php/incdec.php', {
+    method: 'POST',
+    body:formData
+  })
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
 }
 
 function sendToServer() {
