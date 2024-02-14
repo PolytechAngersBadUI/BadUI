@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <title>Bad Uis</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -17,10 +17,17 @@
     </ul>
   </nav>
 
+  <section class="box-title-ui">
+    <div class="title">Bad Uis</div>
+    <div class="subtitle">La liste de toutes les plus belles UIs les plus pratiques et fonctionnelles que vous avez jamais vu</div>
+</section>
+
   <section class="box-badui" style="text-align: center;">
-    <div class="title-bad-uis">Bad Ui n°1</div>
-    <div class="subtitle">petit à petit ...</div>
-      <section style="text-align: center;">
+    <div class="title-bad-uis">
+      <h2>Bad Ui n°1</h2>
+      <h3>petit à petit ...</h3>
+    </div>
+      <section class="badui-content">
         <h2>et heu mets ta date de naissance +20000</h2>
 
         <input type="number" id="numberField" value=0>
@@ -29,14 +36,23 @@
         <script src="test.js"></script>
         <button onclick="sendToServer()">Valider</button>
       </section>
-  
-
-  </section class="box-badui">
-    <div class="title-bad-uis">Bad Ui n°2</div>
-    
   </section>
 
+  <section class="box-badui" style="text-align: center;">
+    <div class="title-bad-uis">
+      <h2>Bad Ui n°2</h2>
+      <h3>ça tangue</h3>
+    </div>
+      <section class="badui-content">
+        <h2>et heu mets ta date de naissance +20000</h2>
 
+        <input type="number" id="numberField" value=0>
+        <button onclick="increaseNumber()">+</button>
+        <button onclick="decreaseNumber()">-</button>
+        <script src="test.js"></script>
+        <button onclick="sendToServer()">Valider</button>
+      </section>
+  </section>
 
 
  
