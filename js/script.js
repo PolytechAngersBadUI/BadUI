@@ -3,9 +3,13 @@ let numbershown = 0;
 
 
 function increaseNumber() {
-  numbershown++;
-  console.log(numbershown);
-  document.getElementById("numberField").value = numbershown;
+  fetch('php/increment_index.php', {
+    method: 'POST',
+    body:''
+  })
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
 }
 
 function decreaseNumber() {
@@ -19,7 +23,7 @@ function sendToServer() {
   console.log(number);
   const formData = new FormData();
   formData.append('number', number);
-  fetch('process_number.php', {
+  fetch('php/process_number.php', {
     method: 'POST',
     body: formData
   })
