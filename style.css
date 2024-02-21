@@ -1,3 +1,5 @@
+/*général*/
+
 html {
     height: 100%;
     width: 100%;
@@ -41,6 +43,12 @@ li a {
     text-decoration: none;
 }
 
+h3 {
+    color: #333;
+    font-size: 25px;
+    font-family: 'Comic Sans MS', Comic Sans, cursive;
+}
+
 /* Changement de couleur au survol */
 li a:hover {
     background-color: #111;
@@ -62,6 +70,7 @@ li a:hover {
     justify-content: center;
     flex-direction: column;
     position: absolute;
+    padding: 3%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -89,28 +98,95 @@ li a:hover {
 
 /*page bad uis*/
 
+.box-title-ui {
+
+   background-color: #333;
+   border-radius: 20px;
+   align-items: center;
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   margin-top: 20px;
+   margin-bottom: 20px;
+   margin-left: 30%;
+   margin-right: 30%;
+   
+}
+
 .title-bad-uis {
     font-family: 'Comic Sans MS', Comic Sans, cursive;
     font-size: 60px;
     text-align: center;
-    color: white;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+    color: #333;
+    padding: 0px;
+    background-color: rgb(119, 195, 52);
+    background-size: cover;
+    margin: 0%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    font-style: italic;
+    text-shadow: -1px 0 black,0 -1px black;
 }
 
 .box-badui{
     background-color: #333;
     border-radius: 20px;
     align-items: center;
+    padding: 0px;
+    margin: 3%;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 20px;
-    justify-content: center;
+}
+
+.badui-content{
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    display: flex;
     flex-direction: column;
-    position: absolute;
-    width: 95%;
+    justify-content: center;
+    font-size: x-large;
+    text-align: center;
     padding: 20px;
 }
+
+.badui-souscontent{
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: large;
+    text-align: center;
+    padding: 20px;
+
+}
+
+/* Styles pour les boutons BADUI page */
+.joli-bouton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #4CAF50; 
+    color: white; 
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Styles pour les boutons au survol BADUI page*/
+.joli-bouton:hover {
+    background-color: #45a049; 
+}
+
+/* Styles pour les boutons au clic BADUI page */
+.joli-bouton:active {
+    background-color: #3e8e41; 
+}
+
+
+/*Bad ui 2 = la barre*/
+
+
 
