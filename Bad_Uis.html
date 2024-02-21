@@ -28,14 +28,17 @@
     <h3>petit à petit</h3>
   </div>
     <section class="badui-content">
-      <h2>et heu mets ta date de naissance +20000</h2>
+      <h2>Globalement faut trouver un chiffre très haut</h2>
+      <div type="number" id="numberField">
+        <h1>0</h1>
+      </div>
       <section class="badui-souscontent">
-        <div type="number" id="numberField">0</div>
+        
         <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-primary" onclick="increaseNumber()">+</button>
-          <button type="button" class="btn btn-primary" onclick="decreaseNumber()">-</button>
-          <script src="js/script.js"></script>
-          <button type="button" class="btn btn-primary" onclick="sendToServer()">Valider</button>
+          <button class="joli-bouton" onclick="increaseNumber()">+</button>
+          <button class="joli-bouton" onclick="decreaseNumber()">-</button>
+          <script src="js/test.js"></script>
+          <button class="joli-bouton" onclick="sendToServer()">Valider</button><br>
 
         </div>
       </section>
@@ -46,3 +49,11 @@
 </body>
 
 </html>
+
+<!-- badui.html :
+
+<input type="number" id="numberField" value=0>
+  <button onclick="increaseNumber()">+</button>
+  <button onclick="decreaseNumber()">-</button>
+  <script src="js/test.js"></script>
+  <button onclick="sendToServer()">Valider</button><br> -->

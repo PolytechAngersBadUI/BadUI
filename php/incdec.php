@@ -17,3 +17,7 @@ if($operation==2){
 // Send the new count back to JavaScript
 echo 'here is your number : ' . $_SESSION['count'];
 }
+if($operation==3){
+    include 'save_number.php';
+}
+

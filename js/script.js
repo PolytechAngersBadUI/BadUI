@@ -1,7 +1,3 @@
-let numbershown = 0;
-
-
-
 function increaseNumber() {
   const formData = new FormData();
   formData.append('operation', 1);
@@ -27,11 +23,9 @@ function decreaseNumber() {
 }
 
 function sendToServer() {
-  let number = numbershown;
-  console.log(number);
   const formData = new FormData();
-  formData.append('number', number);
-  fetch('php/process_number.php', {
+  formData.append('operation', 3);
+  fetch('php/incdec.php', {
     method: 'POST',
     body: formData
   })
