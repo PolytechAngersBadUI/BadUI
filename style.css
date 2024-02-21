@@ -188,5 +188,23 @@ li a:hover {
 
 /*Bad ui 2 = la barre*/
 
+.rectangle {
+    width: 200px;
+    height: 4px; /* Hauteur plus fine pour le rectangle */
+    background-color: #333;
+    position: relative;
+    transition: transform 0.5s ease;
+}
+
+
+/* Styles pour l'inclinaison vers la droite */
+.inclinaison-droite {
+    transform: rotate(45deg);
+}
+
+/* Styles pour l'inclinaison vers la gauche */
+.inclinaison-gauche {
+    transform: rotate(-45deg);
+}
 
 
