@@ -1,5 +1,6 @@
-// Get the image element
-const image = document.querySelector('img');
+
+// Get the image element by its id
+const image = document.getElementById('img');
 
 // Add event listener to track mouse movement
 image.addEventListener('mousemove', moveImageWithCursor);
