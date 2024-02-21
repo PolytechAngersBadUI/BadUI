@@ -10,7 +10,7 @@ function increaseNumber() {
     body:formData
   })
     .then(response => response.text())
-    .then(data => console.log(data))
+    .then(data => document.getElementById("numberField").value = data)
     .catch(error => console.error('Error:', error));
 }
 
@@ -22,8 +22,8 @@ function decreaseNumber() {
     body:formData
   })
     .then(response => response.text())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error:', error));
+    .then(data => document.getElementById("numberField").value = data)
+    .catch(error => console.error('Error:', error))
 }
 
 function sendToServer() {
