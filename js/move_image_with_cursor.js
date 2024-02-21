@@ -1,17 +1,18 @@
 let on = 0;
 // Get the image element by its id
 const image = document.getElementById('img');
+//const rect = document.getElementById('rect');
 
 image.addEventListener('mousemove', moveImage);
 
 
 function moveImage() {
   if(on==0){
-    document.addEventListener('mousemove', moveImageWithCursor);
+    document.addEventListener('mousemove', moveImageWithCursor, {passive: true});
     on=1;
-    image.removeEventListener('mousemove', moveImage);
+    
     setTimeout(() => {
-      document.removeEventListener('mousemove', moveImageWithCursor);
+      document.removeEventListener('mousemove', moveImageWithCursor, {passive: true});
     }, 30000);
   }
 }
@@ -28,6 +29,13 @@ function moveImageWithCursor(event) {
     body: JSON.stringify({x,y})
   })
   .then(response => response.json())
-  .then(data => console.log(data))
+  .then(data => {
+    /*if('xr' in data && 'yr' in data){
+      rect.style.left = data.xr + 'px';
+      rect.style.top = data.yr + 'px';
+    }*/
+    if(data.status == 'success2'){
+    console.log(data.status);}
+  })
   .catch(error => console.error('Error:', error));
 }
