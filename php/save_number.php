@@ -1,20 +1,17 @@
 <?php
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  include 'connect_database.php'; // Contains connection to database
-
-  // We get the value from the js script
-  $number = $_POST['number'];
+include 'connect_database.php'; // Contains connection to database
   
   // Echo value received
-  echo "Received number value: " . $number;
+  echo "Received number value: " . $_SESSION['count'];
+  
 
   // Prepare the SQL statement with a placeholder instead of value
   $sql = "INSERT INTO workpls (number, comment) VALUES (?, 'Here is a comment I want to see')";
   $stmt = $conn->prepare($sql);
 
   // Bind param
-  $stmt->bind_param("i", $number);
+  $stmt->bind_param("i", $_SESSION['count']);
 
   // Execute statement and check if error
   if ($stmt->execute()) {
@@ -37,4 +34,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   //Close statement & database conn
   $stmt->close();
   $conn->close();
-}
