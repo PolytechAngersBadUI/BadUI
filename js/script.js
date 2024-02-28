@@ -30,6 +30,6 @@ function sendToServer() {
     body: formData
   })
     .then(response => response.text())
-    .then(data => console.log(data))
+    .then(data => document.getElementById("numberField").innerHTML = data)
     .catch(error => console.error('Error:', error));
 }

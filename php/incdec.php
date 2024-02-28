@@ -18,6 +18,10 @@ if($operation==2){
 echo 'here is your number : ' . $_SESSION['count'];
 }
 if($operation==3){
-    include 'save_number.php';
+    if($_SESSION['count']==10){
+        echo ' You got the correct number. Congratulations!';
+    //include 'save_number.php';}
+    }else{
+        echo ' You got the wrong number. Try again!';}
 }
 
