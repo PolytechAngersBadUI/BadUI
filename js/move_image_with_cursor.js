@@ -48,8 +48,6 @@ function drawGrid() {
 drawGrid();
 
 function moveImage() {
-  console.log('In moveImage');
-  console.log(on)
   if(on==0){
     document.addEventListener('mousemove', moveImageWithCursor, {passive: true});
     on=1;
@@ -72,7 +70,17 @@ function moveImageWithCursor(event) {
   .then(response => response.json())
   .then(data => {
     console.log(data.status);
-    console.log('x: '+ data.x+ ' y: '+ data.y)
+    //console.log('x: '+ data.x+ ' y: '+ data.y)
+    if(data.status=='success'){
+      console.log(data.message)
+      console.log("New starting coords are x: "+ data.x + ' y: ' + data.y)
+      image.style.left = data.x-image.width/2 + 'px';
+      image.style.top = data.y-image.height/2 + 'px';
+      on=0;
+      //console.log('\'On \'should be reinitialized : ' + on)
+      document.removeEventListener('mousemove', moveImageWithCursor, {passive: true})
+      clearTimeout(timeoutID);
+    }
     if(data.status == 'in'){
       image.style.left = data.x + 'px';
       image.style.top = data.y + 'px';

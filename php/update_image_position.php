@@ -1,44 +1,87 @@
 <?php
 // Receive the x and y coordinates from the client
-session_start(['cookie_lifetime' => 20000,]);
+session_start(['cookie_lifetime' => 30000,]);
 $data = json_decode(file_get_contents('php://input'), true);
 $x = $data['x'];
 $y = $data['y'];
+if(!isset($_SESSION['level'])){
+    $_SESSION['level']=1;
+}
 
 // Define the path coordinates
-$path = [
+$path_1 = [
     ['x' => 100, 'y' => 100],
-    ['x' => 400, 'y' => 100],
-    ['x' => 400, 'y' => 400],
-    ['x' => 100, 'y' => 400]
+    ['x' => 800, 'y' => 100],
+    ['x' => 800, 'y' => 800],
+    ['x' => 100, 'y' => 800]
 ];
+$Startup_point_1=['x' => 250, 'y' => 250];
+$Ending_point_1=['x' => 700, 'y' => 700];
+$path_2 = [
+    ['x' => 300, 'y' => 300],
+    ['x' => 700, 'y' => 300],
+    ['x' => 700, 'y' => 700],
+    ['x' => 300, 'y' => 700]
+];
+$Startup_point_2=['x' => 450, 'y' => 450];
+$Ending_point_2=['x' => 600, 'y' => 600];
 
-// Check if the image is inside the path
-if (isInsidePath($x, $y, $path) && isClosetoPreviousPoint($x, $y, $_SESSION['xp'], $_SESSION['yp'])) {
+$current_path = $path_1;
+$current_starting_point = $Startup_point_1;
+$current_ending_point = $Ending_point_1;
+
+
+
+// Check if the image is on the goal then still inside the path and if the image hasn't been draggedf too far
+if(isOnGoal($x,$y,) && isClosetoPreviousPoint($x, $y, $_SESSION['xp'], $_SESSION['yp'])){
+    $_SESSION['level']++;
+    if($_SESSION['level']==2){
+        $current_path = $path_2;
+        $current_starting_point = $Startup_point_2;
+        $current_ending_point = $Ending_point_2;
+    }
+    else{
+        $_SESSION['level']=1;
+        $current_path = $path_1;
+        $current_starting_point = $Startup_point_1;
+        $current_ending_point = $Ending_point_1;
+    }
+    $response = [
+        'status' => 'success',
+        'message' => 'Image is on the goal, CONGRATZ! You have completed the level '.$_SESSION['level'].'. Place the image on the next path.',
+        'x' => $current_starting_point['x'],
+        'y' => $current_starting_point['y'],
+        'level'=>$_SESSION['level'],
+    ];
+    $_SESSION['xp']=$current_starting_point['x'];
+    $_SESSION['yp']=$current_starting_point['y'];
+}
+else if (isInsidePath($x, $y, $current_path) && isClosetoPreviousPoint($x, $y, $_SESSION['xp'], $_SESSION['yp'])) {
     $response['status'] = 'in';
     $response['message'] = 'Image is inside the path';
     $response['x'] = $x;
     $response['y'] = $y;
     $_SESSION['xp'] = $x;
     $_SESSION['yp'] = $y;
+
 } else if(!isClosetoPreviousPoint($x, $y, $_SESSION['xp'], $_SESSION['yp'])) {
     $response['status'] = 'toofar';
     $response['message'] = 'Image was dragged too far from the previous point, user may be cheating';
     $response['x_out'] = $x;
     $response['y_out'] = $y;
-    $response['x'] = 250;
-    $response['y'] = 250;
-    $_SESSION['xp'] = 250;
-    $_SESSION['yp'] = 250;
+    $response['x'] = $current_starting_point['x'];
+    $response['y'] = $current_starting_point['y'];
+    $_SESSION['xp'] =  $current_starting_point['x'];
+    $_SESSION['yp'] = $current_starting_point['y'];
 }else{
     $response['status'] = 'out';
     $response['message'] = 'Image is not inside the path';
     $response['x_out'] = $x;
     $response['y_out'] = $y;
-    $response['x'] = 250;
-    $response['y'] = 250;
-    $_SESSION['xp'] = 250;
-    $_SESSION['yp'] = 250;
+    $response['x'] = $current_starting_point['x'];
+    $response['y'] = $current_starting_point['y'];
+    $_SESSION['xp'] =  $current_starting_point['x'];
+    $_SESSION['yp'] = $current_starting_point['y'];
 }
 
 /**
@@ -48,7 +91,15 @@ if (isInsidePath($x, $y, $path) && isClosetoPreviousPoint($x, $y, $_SESSION['xp'
  * @param array $vertices The vertices of the polygon
  * @return bool True if the point is inside the polygon, false otherwise
  */
-
+function isOnGoal($x, $y) {
+    global $current_path;
+    global $current_starting_point;
+    global $current_ending_point;
+        if($x>$current_ending_point['x']-50 && $x<$current_ending_point['x']+50 && $y>$current_ending_point['y']-50 && $y<$current_ending_point['y']+50){
+            return true;
+        }else{
+            return false;
+        }}
 function isInsidePath($x, $y, $vertices) {
     $intersections = 0;
     $verticesCount = count($vertices);
