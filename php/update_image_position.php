@@ -42,7 +42,8 @@ if($_SESSION['init']==1){
         'y' => $_SESSION['current_starting_point']['y'],
         'level'=>$_SESSION['level'],
         'endingcoordx' => $_SESSION['current_ending_point']['x'],
-        'endingcoordy' => $_SESSION['current_ending_point']['y']
+        'endingcoordy' => $_SESSION['current_ending_point']['y'],
+        'path' => $path_1
     ];
     $_SESSION['xp']=$_SESSION['current_ending_point']['x'];
     $_SESSION['yp']=$_SESSION['current_ending_point']['y'];
@@ -68,7 +69,8 @@ else if(isOnGoal($x,$y) && isClosetoPreviousPoint($x, $y, $_SESSION['xp'], $_SES
         'y' => $_SESSION['current_starting_point']['y'],
         'level'=>$_SESSION['level'],
         'endingcoordx' => $_SESSION['current_ending_point']['x'],
-        'endingcoordy' => $_SESSION['current_ending_point']['y']
+        'endingcoordy' => $_SESSION['current_ending_point']['y'],
+        'path' => $_SESSION['current_path']
     ];
     $_SESSION['xp']=$_SESSION['current_starting_point']['x'];
     $_SESSION['yp']=$_SESSION['current_starting_point']['y'];
