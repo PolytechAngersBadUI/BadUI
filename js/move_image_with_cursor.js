@@ -69,11 +69,18 @@ function moveImageWithCursor(event) {
   })
   .then(response => response.json())
   .then(data => {
-    console.log(data.status);
-    //console.log('x: '+ data.x+ ' y: '+ data.y)
-    if(data.status=='success'){
+    console.log(data.status + ' ' + data.x + ' ' + data.y);
+    if(data.status == 'init'){
+      image.style.left = data.x + 'px';
+      image.style.top = data.y + 'px';
       console.log(data.message)
-      console.log("New starting coords are x: "+ data.x + ' y: ' + data.y)
+    }
+    //console.log('x: '+ data.x+ ' y: '+ data.y)
+    else if(data.status=='success'){
+      console.log(data.message);
+      console.log("New starting coords are x: "+ data.x + ' y: ' + data.y + "\nNew ending coords are x: "+ data.endingcoordx + ' y: ' + data.endingcoordy);
+      goal.style.left = data.endingcoordx-image.width/2  + 'px';
+      goal.style.top = data.endingcoordy-image.height/2  + 'px';
       image.style.left = data.x-image.width/2 + 'px';
       image.style.top = data.y-image.height/2 + 'px';
       on=0;
@@ -81,7 +88,7 @@ function moveImageWithCursor(event) {
       document.removeEventListener('mousemove', moveImageWithCursor, {passive: true})
       clearTimeout(timeoutID);
     }
-    if(data.status == 'in'){
+    else if(data.status == 'in'){
       image.style.left = data.x + 'px';
       image.style.top = data.y + 'px';
     }
@@ -102,7 +109,5 @@ function moveImageWithCursor(event) {
       document.removeEventListener('mousemove', moveImageWithCursor, {passive: true})
       clearTimeout(timeoutID);
     }
-    
   })
-  .catch(error => console.error('Error:', error));
 }
