@@ -156,8 +156,30 @@ li a:hover {
     justify-content: center;
     font-size: large;
     text-align: center;
-    padding: 20px;
-
 }
 
-/*Bad ui 2 = la barre*/
+/* Styles pour les boutons BADUI page */
+.joli-bouton {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #4CAF50; 
+    color: white; 
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Styles pour les boutons au survol BADUI page*/
+.joli-bouton:hover {
+    background-color: #45a049; 
+}
+
+/* Styles pour les boutons au clic BADUI page */
+.joli-bouton:active {
+    background-color: #3e8e41; 
+}
+

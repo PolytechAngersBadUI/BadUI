@@ -1,5 +1,3 @@
-
-
 function increaseNumber() {
   const formData = new FormData();
   formData.append('operation', 1);
@@ -35,4 +33,3 @@ function sendToServer() {
     .then(data => console.log(data))
     .catch(error => console.error('Error:', error));
 }
-
