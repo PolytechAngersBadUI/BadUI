@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Bad Uis</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <nav>
+    <ul class="navbar">
+        <li><a href="home.html">Accueil</a></li>
+        <li><a href="moveanimage.html">Next</a></li>
+        <li><a href="Nous.html">Nous</a></li>
+    </ul>
+  </nav>
+
+  <section class="box-title-ui">
+    <div class="title">Bad UI</div>
+    <div class="subtitle">The most beautiful and functional UIs you've ever seen in your life. (We're lying)</div>
+</section>
+
+  <section class="box-badui" style="text-align: center;">
+  <div class="title-bad-uis">
+    <h2>Bad UI number 1</h2>
+    <h3>Little by little, let's start with an easy one.</h3><br>
+    <h3><div id="difficulty_message">Choose your difficulty and then start immediatly.</div></h3>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-primary" onclick="difficulty(1)">Easy</button>
+      <button type="button" class="btn btn-primary" onclick="difficulty(2)">Medium</button>
+      <button type="button" class="btn btn-primary" onclick="difficulty(3)">Hard</button><br>
+    </div>
+  </div>
+    <section class="badui-content">
+        <h2>Send us a number, how high can you go ? </h2><br><div id="valnum"></div>
+      <section class="badui-souscontent">
+        <div type="number" id="numberField">0</div>
+        <div class="btn-group" role="group" aria-label="Basic example">
+          <button type="button" class="btn btn-primary" onclick="ChangeNumber(1)">+</button>
+          <button type="button" class="btn btn-primary" onclick="ChangeNumber(2)">-</button>
+          <button type="button" class="btn btn-primary" onclick="sendToServer()">Valider</button><br>
+
+        </div>
+      </section>
+  </section>
+</section>
+<script src="js/numbertragedycode.js"></script>
+</body>
+
+</html>
