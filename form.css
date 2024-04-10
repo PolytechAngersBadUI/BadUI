@@ -1,0 +1,98 @@
+/*général*/
+
+html {
+    height: 100%;
+    width: 100%;
+  }
+
+  /* Réinitialisation de la mise en page par défaut */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(image/minishrek.png);
+    background-repeat: repeat;
+    background-size: auto;
+}
+
+nav {
+    background-color: #333;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+h3 {
+    color: #333;
+    font-size: 25px;
+    font-family: 'Comic Sans MS', Comic Sans, cursive;
+}
+
+/* Changement de couleur au survol */
+li a:hover {
+    background-color: #111;
+}
+
+/* Barre de navigation */
+.navbar {
+    display: flex;
+    justify-content: center;
+}
+    
+.phonenum{
+    justify-content : center;
+    align-items : center;
+}
+.container {
+    background-color: #860a3a;
+    border-radius: 20px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+.digit-input {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    margin: 5px;
+}
+.clear-input {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    margin: 5px;
+}
+.on {
+    background-color: green;
+    color: white;
+}
+.off {
+    background-color: red;
+    color: white;
+}
