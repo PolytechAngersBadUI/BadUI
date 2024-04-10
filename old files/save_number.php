@@ -7,7 +7,7 @@ include 'connect_database.php'; // Contains connection to database
   
 
   // Prepare the SQL statement with a placeholder instead of value
-  $sql = "INSERT INTO workpls (number, comment) VALUES (?, 'Here is a comment I want to see')";
+  $sql = "INSERT INTO workpls (number, comment) VALUES (?, 'Did we get a new highscore ?')";
   $stmt = $conn->prepare($sql);
 
   // Bind param
