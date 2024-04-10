@@ -28,19 +28,21 @@
     <h3>Little by little, let's start with an easy one.</h3><br>
     <h3><div id="difficulty_message">Choose your difficulty and then start immediatly.</div></h3>
     <div class="btn-group" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-primary" onclick="difficulty(1)">Easy</button>
-      <button type="button" class="btn btn-primary" onclick="difficulty(2)">Medium</button>
-      <button type="button" class="btn btn-primary" onclick="difficulty(3)">Hard</button><br>
+      <button type="button" class="joli-bouton" onclick="difficulty(1)">Easy</button>
+      <button type="button" class="joli-bouton" onclick="difficulty(2)">Medium</button>
+      <button type="button" class="joli-bouton" onclick="difficulty(3)">Hard</button><br>
     </div>
   </div>
     <section class="badui-content">
         <h2>Send us a number, how high can you go ? </h2><br><div id="valnum"></div>
       <section class="badui-souscontent">
-        <div type="number" id="numberField">0</div>
+        <div type="number" id="numberField">
+          <h1>0</h1>
+        </div>
         <div class="btn-group" role="group" aria-label="Basic example">
-          <button type="button" class="btn btn-primary" onclick="ChangeNumber(1)">+</button>
-          <button type="button" class="btn btn-primary" onclick="ChangeNumber(2)">-</button>
-          <button type="button" class="btn btn-primary" onclick="sendToServer()">Valider</button><br>
+          <button type="button" class="joli-bouton" onclick="ChangeNumber(1)">+</button>
+          <button type="button" class="joli-bouton" onclick="ChangeNumber(2)">-</button>
+          <button type="button" class="joli-bouton" onclick="sendToServer()">Valider</button><br>
 
         </div>
       </section>
