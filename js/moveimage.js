@@ -1,8 +1,8 @@
 var timeoutID=null;
 let on = 0;
-// Get the image element by its id
+
 const image = document.getElementById('img');
-//const rect = document.getElementById('rect');
+const goal = document.getElementById('goal');
 
 image.addEventListener('mousemove', moveImage);
 
@@ -45,7 +45,7 @@ function drawGrid() {
 }
 
 // Call the drawGrid function to draw the grid on the canvas
-drawGrid();
+//drawGrid();
 
 function moveImage() {
   if(on==0){
@@ -54,7 +54,7 @@ function moveImage() {
     
     timeoutID = setTimeout(() => {
       document.removeEventListener('mousemove', moveImageWithCursor, {passive: true});
-    }, 30000);
+    }, 300000);
   }
 }
 
@@ -79,8 +79,6 @@ function moveImageWithCursor(event) {
     else if(data.status=='success'){
       console.log(data.message);
       console.log("New starting coords are x: "+ data.x + ' y: ' + data.y + "\nNew ending coords are x: "+ data.endingcoordx + ' y: ' + data.endingcoordy);
-      goal.style.left = data.endingcoordx-image.width/2  + 'px';
-      goal.style.top = data.endingcoordy-image.height/2  + 'px';
       image.style.left = data.x-image.width/2 + 'px';
       image.style.top = data.y-image.height/2 + 'px';
       on=0;
@@ -109,5 +107,7 @@ function moveImageWithCursor(event) {
       document.removeEventListener('mousemove', moveImageWithCursor, {passive: true})
       clearTimeout(timeoutID);
     }
+    goal.style.left = data.endingcoordx-(image.width/2)  + 'px';
+    goal.style.top = data.endingcoordy-(image.height/2)  + 'px';
   })
 }
