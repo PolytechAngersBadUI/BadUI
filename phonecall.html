@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Polytech_BadUI</title>
+  <link href="form.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <nav>
+        <ul class="navbar">
+            <li><a href="home.html">Accueil</a></li>
+            <li><a href="moveanimage.html">Next</a></li>
+            <li><a href="Nous.html">Nous</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Enter Your Cell Phone Number (+33)</h2>
+        <form id="phoneForm">
+            <div class="phonebox">
+            <h2><div class="phonenum" type="text" id="phoneInput" maxlength="9" readonly>000 000 000</div></div></h2>
+            <br><br>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 1)" id="button1">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 5)" id="button5">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 9)" id="button9">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 13)" id="button13">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 17)" id="button17">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 21)" id="button21">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 25)" id="button25">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 29)" id="button29">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 33)" id="button33">Off</button>
+            <br>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 2)" id="button2">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 6)" id="button6">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 10)" id="button10">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 14)" id="button14">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 18)" id="button18">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 22)" id="button22">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 26)" id="button26">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 30)" id="button30">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 34)" id="button34">Off</button>
+            <br>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 3)" id="button3">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 7)" id="button7">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 11)" id="button11">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 15)" id="button15">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 19)" id="button19">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 23)" id="button23">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 27)" id="button27">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 31)" id="button31">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 35)" id="button35">Off</button>
+            <br>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 4)" id="button4">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 8)" id="button8">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 12)" id="button12">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 16)" id="button16">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 20)" id="button20">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 24)" id="button24">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 28)" id="button28">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 32)" id="button32">Off</button>
+            <button type="button" class="digit-input off" onclick="toggleButton(this, 36)" id="button36">Off</button>
+            <br>
+            <button type="button" class="clear-input off" onclick="clearAll()">Clear All</button>
+            <br><br>
+            <button type="button" class="clear-input off" onclick="savenumber()">Send Numr</button>
+        </form>
+    </div>
+  
+    <script src="js/worstformui.js"></script>
+</body>
+
+</html>
