@@ -188,10 +188,10 @@ li a:hover {
 
 /*Bad ui 2 = la barre*/
 
-.rectangle {
-    width: 200px;
-    height: 4px; /* Hauteur plus fine pour le rectangle */
-    background-color: #333;
+.barre {
+    width: 100px;
+    height: 20px; /* Hauteur plus fine pour le rectangle */
+    background-color: #da0303;
     position: relative;
     transition: transform 0.5s ease;
 }
@@ -200,6 +200,10 @@ li a:hover {
 /* Styles pour l'inclinaison vers la droite */
 .inclinaison-droite {
     transform: rotate(45deg);
+}
+/* Styles pour l'inclinaison vers la gauche */
+.no-inclinaison {
+    transform: rotate(0deg);
 }
 
 /* Styles pour l'inclinaison vers la gauche */
