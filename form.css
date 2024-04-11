@@ -59,11 +59,6 @@ li a:hover {
     display: flex;
     justify-content: center;
 }
-    
-.phonenum{
-    justify-content : center;
-    align-items : center;
-}
 .container {
     background-color: #860a3a;
     border-radius: 20px;
@@ -75,6 +70,7 @@ li a:hover {
     margin-bottom: 100px;
     margin-left: 30%;
     margin-right: 30%;
+    align-items : center;
 }
 .digit-input {
     width: 50px;

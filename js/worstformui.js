@@ -12,7 +12,6 @@ function toggleButton(button,digit) {
     var newdigit = 0
     var position_digit=0;
     var casetogo=0;
-    console.log(digit);
     if (digit>0 && digit<5) {
         casetogo=1;
     }else if (digit>4 && digit<9) {
@@ -32,7 +31,6 @@ function toggleButton(button,digit) {
     } else if (digit>32 && digit<37) {
         casetogo=9;
     }
-    console.log(casetogo);
     switch(casetogo) {
         case casetogo=1:
             console.log("Updating first digit");
@@ -191,6 +189,19 @@ function toggleButton(button,digit) {
     if(newdigit>9) {
         clearAll();
     }
+    sendinfo(digit);
+}
+
+function sendinfo(digit){
+    const formData = new FormData();
+    formData.append('digit', digit);
+    fetch('php/phonecall.php', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.text())
+      .then(data => {console.log(data)})
+      .catch(error => console.error('Error:', error));
 }
 
 // Function to clear the phone number field
@@ -213,8 +224,26 @@ function clearAll() {
         button.innerHTML = 'Off';
     }
     )
+    const formData = new FormData();
+    formData.append('clear', true);
+    fetch('php/phonecall.php', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.text())
+      .then(data => {console.log(data)})
+      .catch(error => console.error('Error:', error));
     clearField();
 }
 
 function savenumber(){
+    const formData = new FormData();
+    formData.append('save', true);
+    fetch('php/phonecall.php', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.text())
+      .then(data => {console.log(data)})
+      .catch(error => console.error('Error:', error));
 }
