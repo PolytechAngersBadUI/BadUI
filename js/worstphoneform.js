@@ -232,6 +232,7 @@ function savenumber(){
     formData.append('save', true);
     fetch('php/phonecall.php', {
       method: 'POST',
+      
       body: formData
     })
       .then(response => response.text())
