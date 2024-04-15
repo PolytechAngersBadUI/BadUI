@@ -21,6 +21,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $response['digitstate'] = $_SESSION['digitstate'];
     }
     $number = [];
+    if(isset($_POST['clear']) && isset($_SESSION['digitstate'])){
+        if($_POST['clear']==true){
+            $_SESSION['digitstate'] =['0000','0000','0000','0000','0000','0000','0000','0000','0000'];
+        }
+        $response['digitstate'] = $_SESSION['digitstate'];
+    }
     if(isset($_POST['save']) && isset($_SESSION['digitstate'])){
         foreach ($_SESSION['digitstate'] as $digit) {
             $valuetoadd=$digit[0]*1+$digit[1]*2+$digit[2]*4+$digit[3]*8;

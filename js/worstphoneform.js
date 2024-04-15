@@ -224,6 +224,15 @@ function clearAll() {
         button.innerHTML = 'Off';
     }
     )
+    const formData = new FormData();
+    formData.append('clear', true);
+    fetch('php/phonecall.php', {
+      method: 'POST',
+      body: formData
+    })
+      .then(response => response.text())
+      .then(data => {console.log(data)})
+      .catch(error => console.error('Error:', error));
     clearField();
 }
 
