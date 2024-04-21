@@ -128,13 +128,6 @@ else if (isInsidePath($x, $y) && isClosetoPreviousPoint($x, $y, $_SESSION['xp'],
 $response['endingcoordx'] = $_SESSION['current_ending_point']['x'];
 $response['endingcoordy'] = $_SESSION['current_ending_point']['y'];
 
-/**
- * Check if a point is inside a polygon defined by its vertices.
- * @param int $x The x-coordinate of the point
- * @param int $y The y-coordinate of the point
- * @param array $vertices The vertices of the polygon
- * @return bool True if the point is inside the polygon, false otherwise
- */
 function isOnGoal($x, $y) {
         if($x>$_SESSION['current_ending_point']['x']-50 && $x<$_SESSION['current_ending_point']['x']+50 && $y>$_SESSION['current_ending_point']['y']-50 && $y<$_SESSION['current_ending_point']['y']+50){
             return true;
