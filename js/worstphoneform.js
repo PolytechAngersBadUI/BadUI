@@ -177,12 +177,8 @@ function toggleButton(button,digit) {
             position_digit=10;
         break;
     }
-    console.log(phoneNumberField);
     var phoneNumber = phoneNumberField.innerHTML;
     var numbers = phoneNumber.split('');
-    console.log(numbers)
-    console.log(position_digit);
-    console.log(newdigit);
     numbers[position_digit] = newdigit;
     var newPhoneNumber = numbers.join('');
     phoneNumberField.innerHTML = newPhoneNumber;
@@ -211,12 +207,8 @@ function clearField() {
 }
 
 function clearAll() {
-    console.log("Hello1");
     var test = document.getElementById('phoneForm');
-    console.log(test);
     var buttons = test.querySelectorAll('.digit-input');
-    console.log("Hello");
-    console.log(buttons);
     buttons.forEach(function(button) {
         console.log("One down");
         button.classList.remove('on');
