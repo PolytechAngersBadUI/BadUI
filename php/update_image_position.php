@@ -164,7 +164,7 @@ $response['endingcoordx'] = $_SESSION['current_ending_point']['x'];
 $response['endingcoordy'] = $_SESSION['current_ending_point']['y'];
 
 function isOnGoal($x, $y) {
-        if($x>$_SESSION['current_ending_point']['x']-50 && $x<$_SESSION['current_ending_point']['x']+50 && $y>$_SESSION['current_ending_point']['y']-50 && $y<$_SESSION['current_ending_point']['y']+50){
+        if($x>$_SESSION['current_ending_point']['x']-25 && $x<$_SESSION['current_ending_point']['x']+25 && $y>$_SESSION['current_ending_point']['y']-25 && $y<$_SESSION['current_ending_point']['y']+25){
             return true;
         }else{
             return false;
