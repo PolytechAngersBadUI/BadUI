@@ -111,3 +111,17 @@ li a:hover {
     opacity: 0.97;
     padding: 2em;
   }
+
+  #laby{
+    z-index: 9999;
+    position:fixed;
+    top: 0;
+    left: 0;
+  }
+
+  #cube{
+    z-index: 9999;
+    position:fixed;
+    top: 0;
+    left: 0;
+  }
