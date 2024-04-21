@@ -6,47 +6,6 @@ const goal = document.getElementById('goal');
 
 image.addEventListener('mousemove', moveImage);
 
-// Function to draw a grid on the canvas
-function drawGrid() {
-  // Create a canvas element
-  // Set the canvas size to match the HTML page
-  
-  const canvas = document.createElement('canvas');
-  // Get the 2D rendering context for the canvas
-  const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-// Append the canvas to the document body
-
-  document.body.appendChild(canvas);
-  const gridSize = 50; // Adjust the size of the grid squares as needed
-  const canvasWidth = canvas.width;
-  const canvasHeight = canvas.height;
-  console.log(canvasWidth, canvasHeight);
-
-  ctx.strokeStyle = 'gray';
-  ctx.lineWidth = 1;
-
-  // Draw vertical lines
-  for (let x = 0; x <= canvasWidth; x += gridSize) {
-    ctx.beginPath();
-    ctx.moveTo(x, 0);
-    ctx.lineTo(x, canvasHeight);
-    ctx.stroke();
-  }
-
-  // Draw horizontal lines
-  for (let y = 0; y <= canvasHeight; y += gridSize) {
-    ctx.beginPath();
-    ctx.moveTo(0, y);
-    ctx.lineTo(canvasWidth, y);
-    ctx.stroke();
-  }
-}
-
-// Call the drawGrid function to draw the grid on the canvas
-//drawGrid();
-
 function moveImage() {
   if(on==0){
     document.addEventListener('mousemove', moveImageWithCursor, {passive: true});
@@ -54,13 +13,13 @@ function moveImage() {
     
     timeoutID = setTimeout(() => {
       document.removeEventListener('mousemove', moveImageWithCursor, {passive: true});
-    }, 300000);
+    }, 30000);
   }
 }
 
-// Function to move the image with the cursor
+//Function to move the image with the cursor
 function moveImageWithCursor(event) {
-  // Calculate the new position of the image based on the mouse coordinates
+  //Calculate the new position of the image based on the mouse coordinates. it will then get sent to the server
   const x = event.clientX - image.width / 2;
   const y = event.clientY - image.height / 2;
   fetch('php/update_image_position.php', {
@@ -82,6 +41,17 @@ function moveImageWithCursor(event) {
       image.style.left = data.x-image.width/2 + 'px';
       image.style.top = data.y-image.height/2 + 'px';
       on=0;
+      if(data.level==1){
+        document.getElementById('laby').style.display = 'none';
+        document.getElementById('cube').style.display = 'block';
+      }
+      else if(data.level==3){
+        document.getElementById('laby').style.display = 'block';
+        document.getElementById('cube').style.display = 'none';
+      }else{
+        document.getElementById('laby').style.display = 'none';
+        document.getElementById('cube').style.display = 'none';
+      }
       //console.log('\'On \'should be reinitialized : ' + on)
       document.removeEventListener('mousemove', moveImageWithCursor, {passive: true})
       clearTimeout(timeoutID);
