@@ -166,10 +166,12 @@ if(isset($_SESSION['current_ending_point'])){
     $response['endingcoordx'] = $_SESSION['current_ending_point']['x'];
     $response['endingcoordy'] = $_SESSION['current_ending_point']['y'];
 }
-
-
+// Send the response back to the client
+header('Content-Type: application/json');
+echo json_encode($response);
+}
 function isOnGoal($x, $y) {
-        if($x>$_SESSION['current_ending_point']['x']-25 && $x<$_SESSION['current_ending_point']['x']+25 && $y>$_SESSION['current_ending_point']['y']-25 && $y<$_SESSION['current_ending_point']['y']+25){
+        if($x>$_SESSION['current_ending_point']['x']-50 && $x<$_SESSION['current_ending_point']['x']+50 && $y>$_SESSION['current_ending_point']['y']-50 && $y<$_SESSION['current_ending_point']['y']+50){
             return true;
         }else{
             return false;
@@ -196,8 +198,4 @@ function isClosetoPreviousPoint($x, $y, $xp, $yp) {
         return true;
     }
     return false;
-}
-// Send the response back to the client
-header('Content-Type: application/json');
-echo json_encode($response);
 }
