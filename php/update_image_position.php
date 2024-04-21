@@ -2,10 +2,8 @@
 // Receive the x and y coordinates from the client
 session_start(['cookie_lifetime' => 40000,]);
 $data = json_decode(file_get_contents('php://input'), true);
-if(isset($data['x']) && isset($data['y'])){
-    $x = $data['x'];
-    $y = $data['y'];
-
+$x = $data['x'];
+$y = $data['y'];
 
 
 // Define the path coordinates
@@ -60,8 +58,8 @@ $path_2 = [
     ['x' => 200, 'y' => 300] #L1 -
 ];
 
-$Startup_point_2=['x' => 275, 'y' => 475];
-$Ending_point_2=['x' => 765.8, 'y' => 1000];
+$Startup_point_2=['x' => 275, 'y' => 350];
+$Ending_point_2=['x' => 585.8, 'y' => 650];
 
 $path_3 = [
     ['x' => 300, 'y' => 300],
@@ -162,14 +160,9 @@ else if (isInsidePath($x, $y) && isClosetoPreviousPoint($x, $y, $_SESSION['xp'],
     $_SESSION['xp'] =  $_SESSION['current_starting_point']['x'];
     $_SESSION['yp'] = $_SESSION['current_starting_point']['y'];
 }
-if(isset($_SESSION['current_ending_point'])){
-    $response['endingcoordx'] = $_SESSION['current_ending_point']['x'];
-    $response['endingcoordy'] = $_SESSION['current_ending_point']['y'];
-}
-// Send the response back to the client
-header('Content-Type: application/json');
-echo json_encode($response);
-}
+$response['endingcoordx'] = $_SESSION['current_ending_point']['x'];
+$response['endingcoordy'] = $_SESSION['current_ending_point']['y'];
+
 function isOnGoal($x, $y) {
         if($x>$_SESSION['current_ending_point']['x']-50 && $x<$_SESSION['current_ending_point']['x']+50 && $y>$_SESSION['current_ending_point']['y']-50 && $y<$_SESSION['current_ending_point']['y']+50){
             return true;
@@ -199,3 +192,6 @@ function isClosetoPreviousPoint($x, $y, $xp, $yp) {
     }
     return false;
 }
+// Send the response back to the client
+header('Content-Type: application/json');
+echo json_encode($response);
