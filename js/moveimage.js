@@ -3,6 +3,8 @@ let on = 0;
 
 const image = document.getElementById('img');
 const goal = document.getElementById('goal');
+document.getElementById('laby').style.display = 'none';
+document.getElementById('cube').style.display = 'none';
 
 image.addEventListener('mousemove', moveImage);
 
@@ -28,11 +30,22 @@ function moveImageWithCursor(event) {
   })
   .then(response => response.json())
   .then(data => {
-    console.log(data.status + ' ' + data.x + ' ' + data.y);
     if(data.status == 'init'){
       image.style.left = data.x + 'px';
       image.style.top = data.y + 'px';
-      console.log(data.message)
+      console.log(data.message);
+      console.log(data.level);
+      if(data.level==1){
+        document.getElementById('laby').style.display = 'none';
+        document.getElementById('cube').style.display = 'block';
+      }
+      else if(data.level==3){
+        document.getElementById('laby').style.display = 'block';
+        document.getElementById('cube').style.display = 'none';
+      }else{
+        document.getElementById('laby').style.display = 'none';
+        document.getElementById('cube').style.display = 'none';
+      }
     }
     //console.log('x: '+ data.x+ ' y: '+ data.y)
     else if(data.status=='success'){
@@ -45,7 +58,7 @@ function moveImageWithCursor(event) {
         document.getElementById('laby').style.display = 'none';
         document.getElementById('cube').style.display = 'block';
       }
-      else if(data.level==3){
+      else if(data.level==2){
         document.getElementById('laby').style.display = 'block';
         document.getElementById('cube').style.display = 'none';
       }else{

@@ -58,8 +58,8 @@ $path_2 = [
     ['x' => 200, 'y' => 300] #L1 -
 ];
 
-$Startup_point_2=['x' => 250, 'y' => 250];
-$Ending_point_2=['x' => 600, 'y' => 600];
+$Startup_point_2=['x' => 275, 'y' => 315];
+$Ending_point_2=['x' => 585.8, 'y' => 825];
 
 $path_3 = [
     ['x' => 300, 'y' => 300],
@@ -76,7 +76,7 @@ $path_3 = [
     ['x' => 700, 'y' => 300]
 ];
 $Startup_point_3=['x' => 400, 'y' => 400];
-$Ending_point_3=['x' => 575, 'y' => 825];
+$Ending_point_3=['x' => 550, 'y' => 750];
 
 if(!isset($_SESSION['level'])){
     $_SESSION['level']=1;
