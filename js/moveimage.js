@@ -47,7 +47,6 @@ function moveImageWithCursor(event) {
         document.getElementById('cube').style.display = 'none';
       }
     }
-    //console.log('x: '+ data.x+ ' y: '+ data.y)
     else if(data.status=='success'){
       console.log(data.message);
       console.log("New starting coords are x: "+ data.x + ' y: ' + data.y + "\nNew ending coords are x: "+ data.endingcoordx + ' y: ' + data.endingcoordy);
@@ -65,7 +64,6 @@ function moveImageWithCursor(event) {
         document.getElementById('laby').style.display = 'none';
         document.getElementById('cube').style.display = 'none';
       }
-      //console.log('\'On \'should be reinitialized : ' + on)
       document.removeEventListener('mousemove', moveImageWithCursor, {passive: true})
       clearTimeout(timeoutID);
     }
@@ -78,7 +76,6 @@ function moveImageWithCursor(event) {
       image.style.left = data.x-image.width/2 + 'px';
       image.style.top = data.y-image.height/2 + 'px';
       on=0;
-      //console.log('\'On \'should be reinitialized : ' + on)
       document.removeEventListener('mousemove', moveImageWithCursor, {passive: true})
       clearTimeout(timeoutID);
     }else if(data.status == 'toofar'){
